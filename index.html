@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript深、浅拷贝" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="article-date">
+  <time datetime="2020-06-24T08:02:49.000Z" itemprop="datePublished">2020-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/">JavaScript深、浅拷贝</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="JavaScript数组使用slice、concat方法解决浅拷贝"><a href="#JavaScript数组使用slice、concat方法解决浅拷贝" class="headerlink" title="JavaScript数组使用slice、concat方法解决浅拷贝"></a>JavaScript数组使用slice、concat方法解决浅拷贝</h5><ol>
+<li>使用slice方法解决浅拷贝<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.slice(<span class="number">0</span>);</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(newArr)  <span class="comment">//输出结果为:[1,2,3]</span></span><br></pre></td></tr></table></figure></li>
+<li>使用concat方法解决浅拷贝<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">let</span> newArr = arr.concat();</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(newArr)  <span class="comment">//输出结果为:[1,2,3]</span></span><br></pre></td></tr></table></figure>
+总结: slice和concat只能解决一维数组的浅拷贝问题,二维数组不能解决</li>
+</ol>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/" data-id="ckbt3bh180004hkv77d34ghrw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript遍历数组方法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" class="article-date">
@@ -146,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" data-id="ckbt0f2d300000ov70cou1lkr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" data-id="ckbt3bh0v0001hkv7drv2fycs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" data-id="ckbt0f2d800010ov7alix6iaa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" data-id="ckbt3bh0q0000hkv75oah63k5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -241,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbt0f2d900020ov7ctyhe7rr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbt3bh0x0002hkv7d50982e8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +332,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbt0f2dm00030ov78r7428qf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbt3bh0z0003hkv75u30b74o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -329,6 +371,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/">JavaScript深、浅拷贝</a>
+          </li>
         
           <li>
             <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">JavaScript遍历数组方法</a>
