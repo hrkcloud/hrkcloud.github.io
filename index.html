@@ -92,11 +92,16 @@
 总结: slice和concat只能解决一维数组的浅拷贝问题,二维数组不能解决</li>
 </ol>
 <hr>
+<h5 id="JavaScript数组深拷贝使用序列化JSON-parse-JSON-stringify-obj"><a href="#JavaScript数组深拷贝使用序列化JSON-parse-JSON-stringify-obj" class="headerlink" title="JavaScript数组深拷贝使用序列化JSON.parse(JSON.stringify(obj))"></a>JavaScript数组深拷贝使用序列化JSON.parse(JSON.stringify(obj))</h5><ol>
+<li>使用slice方法解决浅拷贝<br><a href="https://www.cnblogs.com/renbo/p/9563050.html" target="_blank" rel="noopener">JSON.parse(JSON.stringify(obj))不能用时可以参考递归方法</a><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">name</span>: <span class="string">'zs'</span>, <span class="attr">age</span>: <span class="number">18</span>, <span class="attr">obj</span>: &#123; <span class="attr">id</span>: <span class="number">1</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj1))</span><br><span class="line">obj1.obj.id = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj2.obj.id) <span class="comment">//打印结果为 1</span></span><br></pre></td></tr></table></figure>
+总结: JSON.parse(JSON.stringify(obj))当对象中有function,undefined,symbol会在转换中被忽略,无法使用此方法</li>
+</ol>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/" data-id="ckbt3bh180004hkv77d34ghrw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/" data-id="ckbtcjj8v0000asv734470zfh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -188,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" data-id="ckbt3bh0v0001hkv7drv2fycs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" data-id="ckbtcjj8z0001asv762671gtv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -226,7 +231,63 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" data-id="ckbt3bh0q0000hkv75oah63k5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" data-id="ckbtcjj910002asv7a3zy2cne" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript遍历对象的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-06-24T05:35:25.000Z" itemprop="datePublished">2020-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">JavaScript对象</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="JavaScript遍历对象for-in"><a href="#JavaScript遍历对象for-in" class="headerlink" title="JavaScript遍历对象for-in"></a>JavaScript遍历对象for-in</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历对象for-in</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys 获取到的是obj对象中的键,也就是name,age</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历数组for-in</span></span><br><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys获取到的是arr数组中的索引值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="JavaScript对象JSON转换"><a href="#JavaScript对象JSON转换" class="headerlink" title="JavaScript对象JSON转换"></a>JavaScript对象JSON转换</h5><ol>
+<li>使用JSON.stringify将对象转换为字符串<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象转换为Json字符串</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>:<span class="string">'张三'</span>,<span class="attr">age</span>:<span class="number">18</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">JSON</span>.stringify(obj)) <span class="comment">//输出结果为: string</span></span><br></pre></td></tr></table></figure></li>
+<li>使用JSON.parse将Json字符串转换为对象</li>
+</ol>
+<ul>
+<li>需要注意使用JSON.parse转换的时候需要把对象中的 键值对用引号包裹,否则会报错<br><a href="http://www.yayihouse.com/yayishuwu/chapter/1331" target="_blank" rel="noopener">JSON.parse报错</a><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'&#123; "name":"张三","age":"18" &#125;'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">JSON</span>.parse(str)) <span class="comment">//输出结果为 object</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript对象合并"><a href="#JavaScript对象合并" class="headerlink" title="JavaScript对象合并"></a>JavaScript对象合并</h5><ol>
+<li>使用Object.assign(参数1,…参数2)合并对象</li>
+</ol>
+<ul>
+<li>参数1: 目标对象</li>
+<li>参数2: 源对象<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj1 = &#123; <span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123; <span class="attr">c</span>:<span class="number">3</span>,<span class="attr">d</span>:<span class="number">4</span> &#125;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj1,obj2);</span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">//打印结果为 &#123; a:1,b:2,c:3,d:4 &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="ckbtcjj920003asv7f214deq3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbt3bh0x0002hkv7d50982e8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbtcjj940005asv788xa19fc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -332,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbt3bh0z0003hkv75u30b74o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbtcjj930004asv719v7e9ra" class="article-share-link">Share</a>
       
       
     </footer>
@@ -385,11 +446,11 @@
           </li>
         
           <li>
-            <a href="/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/">JavaScript基础</a>
+            <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">JavaScript对象</a>
           </li>
         
           <li>
-            <a href="/2020/06/24/hello-world/">Hello World</a>
+            <a href="/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/">JavaScript基础</a>
           </li>
         
       </ul>
