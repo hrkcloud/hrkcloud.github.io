@@ -64,6 +64,136 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript遍历数组方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-06-24T05:50:42.000Z" itemprop="datePublished">2020-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">JavaScript遍历数组方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="JavaScript遍历数组for-of"><a href="#JavaScript遍历数组for-of" class="headerlink" title="JavaScript遍历数组for-of"></a>JavaScript遍历数组for-of</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历数组for-of</span></span><br><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">of</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//结果为1,2,3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="JavaScript遍历数组forEach"><a href="#JavaScript遍历数组forEach" class="headerlink" title="JavaScript遍历数组forEach"></a>JavaScript遍历数组forEach</h5><ol>
+<li>forEach没有返回值</li>
+</ol>
+<ul>
+<li>参数1: 每一项的值</li>
+<li>参数2: 索引<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line">arr.forEach(<span class="function">(<span class="params">value,index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value) <span class="comment">//结果为1,2,3</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript遍历数组map"><a href="#JavaScript遍历数组map" class="headerlink" title="JavaScript遍历数组map"></a>JavaScript遍历数组map</h5><ol>
+<li>map有返回值(返回数组)</li>
+</ol>
+<ul>
+<li>参数1: 每一项的值</li>
+<li>参数2: 索引<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> result = arr.map(<span class="function">(<span class="params">value, index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value &lt; <span class="number">10</span> ? <span class="string">'0'</span> + value : alue</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result)  <span class="comment">//结果为[ 01,02,03 ]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript遍历数组filter"><a href="#JavaScript遍历数组filter" class="headerlink" title="JavaScript遍历数组filter"></a>JavaScript遍历数组filter</h5><ol>
+<li>filter有返回值(返回数组),返回的是满足条件的数组</li>
+</ol>
+<ul>
+<li>参数1: 每一项的值</li>
+<li>参数2: 索引<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">let</span> result = arr.filter(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value &gt;= <span class="number">2</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// 返回结果[ 2,3 ]</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript遍历数组every"><a href="#JavaScript遍历数组every" class="headerlink" title="JavaScript遍历数组every"></a>JavaScript遍历数组every</h5><ol>
+<li>every有返回值(返回boolean),遍历数组中所有的值,如果全都满足条件返回true,只要有一个没有满足条件,返回false</li>
+</ol>
+<ul>
+<li>参数1: 每一项的值</li>
+<li>参数2: 索引<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>]</span><br><span class="line"><span class="keyword">let</span> result = arr.every(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value </span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// 返回结果 false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript遍历数组some"><a href="#JavaScript遍历数组some" class="headerlink" title="JavaScript遍历数组some"></a>JavaScript遍历数组some</h5><ol>
+<li>some有返回值(返回boolean),如果有一个满足条件返回true</li>
+</ol>
+<ul>
+<li>参数1: 每一项的值</li>
+<li>参数2: 索引<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="literal">true</span>, <span class="literal">true</span>, <span class="literal">false</span>]</span><br><span class="line"><span class="keyword">let</span> result = arr.some(<span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> value </span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">// 返回结果 true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h5 id="JavaScript遍历数组reduce"><a href="#JavaScript遍历数组reduce" class="headerlink" title="JavaScript遍历数组reduce"></a>JavaScript遍历数组reduce</h5><ol>
+<li>reduce有返回值(返回累加值,如果是number类型的就是计算结果,字符串就是拼接后的字符串),累加数组中的值</li>
+</ol>
+<ul>
+<li>参数1: 总计</li>
+<li>参数2: 当前值<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">let</span> result = arr.reduce(<span class="function">(<span class="params">total,current</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> total + current</span><br><span class="line">&#125;,<span class="number">0</span>)</span><br><span class="line"><span class="built_in">console</span>.log(result) <span class="comment">//结果为6</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" data-id="ckbszfizw00017kv7hr1y1ytt" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript遍历对象的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2020-06-24T05:35:25.000Z" itemprop="datePublished">2020-06-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">JavaScript遍历对象的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="JavaScript遍历对象for-in"><a href="#JavaScript遍历对象for-in" class="headerlink" title="JavaScript遍历对象for-in"></a>JavaScript遍历对象for-in</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历对象for-in</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys 获取到的是obj对象中的键,也就是name,age</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历数组for-in</span></span><br><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys获取到的是arr数组中的索引值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" data-id="ckbszfizs00007kv7bhsgd8kb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Javascript基础" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" class="article-date">
@@ -101,11 +231,17 @@
 </li>
 </ol>
 <hr>
+<h5 id="JavaScript检查属性"><a href="#JavaScript检查属性" class="headerlink" title="JavaScript检查属性"></a>JavaScript检查属性</h5><ol>
+<li>in: 用in检查是否该对象有此属性,如果有返回true否则返回false<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'男'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'name'</span> <span class="keyword">in</span> obj); <span class="comment">//返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'address'</span> <span class="keyword">in</span> obj); <span class="comment">//返回false</span></span><br></pre></td></tr></table></figure></li>
+<li>hasOwnProperty: 用hasOwnProperty判断对象中是否有该属性,返回blooean<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">'男'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'age'</span>)) <span class="comment">//返回true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">'address'</span>)) <span class="comment">//返回false</span></span><br></pre></td></tr></table></figure>
+总结: in和hasOwnProperty两者的区别: in会先从原型中去找是否有该属性再找自身是否有此属性,hasOwnProperty只会找自身不会找原型中的属性</li>
+</ol>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbsw3m8x0001gkv77m34177z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/" data-id="ckbszfizx00027kv71ojw2dtz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbsw3m8a0000gkv77b00gnkb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/24/hello-world/" data-id="ckbszfj0o00037kv7g4b9b4kf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -193,6 +329,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/">JavaScript遍历数组方法</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">JavaScript遍历对象的方法</a>
+          </li>
         
           <li>
             <a href="/2020/06/24/Javascript%E5%9F%BA%E7%A1%80/">JavaScript基础</a>
