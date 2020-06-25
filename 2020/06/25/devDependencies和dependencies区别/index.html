@@ -5,17 +5,17 @@
   
 
   
-  <title>JavaScript对象 | 何可</title>
+  <title>devDependencies和dependencies区别 | 何可</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript遍历对象for-in12345678910111213&#x2F;&#x2F; 遍历对象for-inlet obj &#x3D; &amp;#123;    name: &#39;zs&#39;,    age: 18&amp;#125;for(let keys in obj) &amp;#123;    console.log(keys) &#x2F;&#x2F;keys 获取到的是obj对象中的键,也就是name,age&amp;#125;&#x2F;&#x2F; 遍历数组for-inle">
+  <meta name="description" content="devDependencies用于本地环境开发时候 devDependencies是只会在开发环境下依赖的模块,生产环境不会被打入包内。 安装模块时如果不需要发布到线上环境,使用 –save-dev   dependencies用户发布环境 dependencies依赖的包不仅开发环境能使用,生产环境也能使用。 安装模块时如果需要发布到线上环境,使用 –save">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript对象">
-<meta property="og:url" content="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:title" content="devDependencies和dependencies区别">
+<meta property="og:url" content="http://yoursite.com/2020/06/25/devDependencies%E5%92%8Cdependencies%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="何可">
-<meta property="og:description" content="JavaScript遍历对象for-in12345678910111213&#x2F;&#x2F; 遍历对象for-inlet obj &#x3D; &amp;#123;    name: &#39;zs&#39;,    age: 18&amp;#125;for(let keys in obj) &amp;#123;    console.log(keys) &#x2F;&#x2F;keys 获取到的是obj对象中的键,也就是name,age&amp;#125;&#x2F;&#x2F; 遍历数组for-inle">
+<meta property="og:description" content="devDependencies用于本地环境开发时候 devDependencies是只会在开发环境下依赖的模块,生产环境不会被打入包内。 安装模块时如果不需要发布到线上环境,使用 –save-dev   dependencies用户发布环境 dependencies依赖的包不仅开发环境能使用,生产环境也能使用。 安装模块时如果需要发布到线上环境,使用 –save">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-06-24T05:35:25.000Z">
-<meta property="article:modified_time" content="2020-06-24T06:37:00.798Z">
+<meta property="article:published_time" content="2020-06-25T02:25:40.000Z">
+<meta property="article:modified_time" content="2020-06-25T02:31:11.785Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -70,10 +70,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-JavaScript对象" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-devDependencies和dependencies区别" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time datetime="2020-06-24T05:35:25.000Z" itemprop="datePublished">2020-06-24</time>
+    <a href="/2020/06/25/devDependencies%E5%92%8Cdependencies%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-06-25T02:25:40.000Z" itemprop="datePublished">2020-06-25</time>
 </a>
     
   </div>
@@ -84,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript对象
+      devDependencies和dependencies区别
     </h1>
   
 
@@ -92,13 +92,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="JavaScript遍历对象for-in"><a href="#JavaScript遍历对象for-in" class="headerlink" title="JavaScript遍历对象for-in"></a>JavaScript遍历对象for-in</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 遍历对象for-in</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'zs'</span>,</span><br><span class="line">    age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys 获取到的是obj对象中的键,也就是name,age</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 遍历数组for-in</span></span><br><span class="line"><span class="keyword">let</span> arr = [ <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> ];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> keys <span class="keyword">in</span> arr) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(keys) <span class="comment">//keys获取到的是arr数组中的索引值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h5 id="devDependencies用于本地环境开发时候"><a href="#devDependencies用于本地环境开发时候" class="headerlink" title="devDependencies用于本地环境开发时候"></a>devDependencies用于本地环境开发时候</h5><ol>
+<li>devDependencies是只会在开发环境下依赖的模块,生产环境不会被打入包内。</li>
+<li>安装模块时如果不需要发布到线上环境,使用 –save-dev</li>
+</ol>
+<hr>
+<h5 id="dependencies用户发布环境"><a href="#dependencies用户发布环境" class="headerlink" title="dependencies用户发布环境"></a>dependencies用户发布环境</h5><ol>
+<li>dependencies依赖的包不仅开发环境能使用,生产环境也能使用。</li>
+<li>安装模块时如果需要发布到线上环境,使用 –save</li>
+</ol>
 <hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/24/JavaScript%E5%AF%B9%E8%B1%A1/" data-id="ckbu6dxmk00006cv73zkuci30" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/25/devDependencies%E5%92%8Cdependencies%E5%8C%BA%E5%88%AB/" data-id="ckbu6dxn600066cv7b9k00622" class="article-share-link">Share</a>
       
       
     </footer>
@@ -107,19 +115,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript遍历数组方法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/24/JavaScript%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/06/24/JavaScript%E6%B7%B1%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript对象</div>
+      <div class="article-nav-title">JavaScript深、浅拷贝</div>
     </a>
   
 </nav>
